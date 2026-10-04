@@ -1,95 +1,60 @@
 <!doctype html>
-<html lang="es"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>BEATS OCTUBRE — shelovesttute©</title>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BEATS OCTUBRE — shelovesttute© §</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-<style>
-:root{--bg:#ffe600;--ink:#000;--card:#fffbe0;--hot:#ff4fa3;--on:#ffe600;--sh:#000;--line:4px solid var(--ink);
---d:"Anton",Impact,"Arial Narrow Bold",sans-serif;--b:"Space Grotesk",system-ui,sans-serif;
-box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0a0a0a;--ink:#ffe600;--card:#141414;--on:#000;--sh:#ffe600}}
-:root[data-theme="dark"]{--bg:#0a0a0a;--ink:#ffe600;--card:#141414;--on:#000;--sh:#ffe600}
-html{scroll-padding-top:env(safe-area-inset-top,0px)}
-*{box-sizing:border-box;margin:0}
-body{background:var(--bg);color:var(--ink);font:500 1rem var(--b);padding-bottom:110px;-webkit-font-smoothing:antialiased}
-.top{display:flex;justify-content:space-between;gap:1rem;padding:.9rem clamp(1rem,3vw,2.5rem);border-bottom:var(--line);font-weight:700;font-size:.9rem}
-.hero{padding:clamp(1.5rem,4vw,3rem) clamp(1rem,3vw,2.5rem) 1.5rem}
-h1{font:400 clamp(4.2rem,22vw,20rem)/.82 var(--d)}
-.hero p{margin:1.4rem 0 1rem;max-width:34ch;font-size:1.2rem;font-weight:700}
-.load{all:unset;cursor:pointer;display:inline-block;background:var(--ink);color:var(--on);font-weight:700;padding:.9rem 1.3rem;border:var(--line)}
-.load:focus-visible,.inq:focus-visible,.cover:focus-visible{outline:4px solid var(--hot);outline-offset:3px}
-.belt{border-block:var(--line);background:var(--ink);color:var(--on);overflow:hidden;white-space:nowrap;font:400 1.5rem var(--d);padding:.5rem 0}
-.belt div{display:inline-block;animation:m 30s linear infinite}.belt span{margin-right:2rem}
-@keyframes m{to{transform:translateX(-50%)}}
-.vault{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,320px),1fr));gap:2rem;padding:clamp(1rem,3vw,2.5rem)}
-.beat{background:var(--card);border:var(--line);box-shadow:10px 10px 0 var(--sh)}
-.beat.on{background:var(--hot);color:#000}
-.cover{all:unset;display:block;position:relative;width:100%;aspect-ratio:1;cursor:pointer;border-bottom:var(--line);overflow:hidden}
-.cover img{width:100%;height:100%;object-fit:cover;display:block}
-.tag{position:absolute;left:0;top:1rem;background:#000;color:#ffe600;font:400 1.5rem var(--d);padding:.2rem .8rem .2rem 1rem}
-.tag2{top:3.4rem;background:var(--hot);color:#000;font-size:1.05rem;max-width:92%;line-height:1.25}
-.play{position:absolute;right:1rem;bottom:1rem;width:4.2rem;height:4.2rem;background:#ffe600;border:4px solid #000;display:grid;place-items:center}
-.play::after{content:"";border-left:1.5rem solid #000;border-block:.95rem solid transparent;margin-left:.4rem}
-.beat.on .play::after{border:0;width:1.3rem;height:1.5rem;margin:0;background:linear-gradient(90deg,#000 35%,transparent 35% 65%,#000 65%)}
-.meta{padding:1rem 1.1rem 1.2rem}.num{font-weight:700;font-size:.85rem}
-h2{font:400 clamp(2.2rem,5vw,3rem)/.95 var(--d);margin:.3rem 0 .5rem;overflow-wrap:anywhere}
-.credit{font-weight:700;margin-bottom:1rem}
-.inq{display:block;text-align:center;background:#000;color:#ffe600;text-decoration:none;font-weight:700;padding:.9rem;border:4px solid #000}
-.beat.on .inq{border-color:#000}
-footer{padding:2rem clamp(1rem,3vw,2.5rem);font-weight:700}
-.player{position:fixed;left:0;right:0;bottom:0;z-index:9;display:flex;align-items:center;gap:.6rem;background:#000;color:#ffe600;padding:.8rem clamp(.8rem,3vw,2rem);padding-bottom:calc(.8rem + env(safe-area-inset-bottom,0px));border-top:4px solid #ffe600}
-.player[hidden]{display:none}
-.player button{all:unset;cursor:pointer;width:2.7rem;height:2.7rem;display:grid;place-items:center;border:3px solid #ffe600}
-.player button:focus-visible{outline:3px solid var(--hot)}
-.now{font:400 1.3rem var(--d);flex:0 1 14rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-#seek{flex:1;min-width:60px;accent-color:var(--hot)}
-.toast{position:fixed;left:50%;bottom:120px;transform:translate(-50%,20px);background:var(--hot);color:#000;border:4px solid #000;padding:.7rem 1rem;font-weight:700;opacity:0;pointer-events:none;transition:.2s;max-width:92vw;text-align:center}
-.toast.show{opacity:1;transform:translate(-50%,0)}
-@media(max-width:600px){.now{display:none}.top span:last-child{display:none}}
-@media(prefers-reduced-motion:reduce){.belt div{animation:none}}
-</style></head><body>
-<header class="top"><span>shelovesttute©</span><span>PRIVATE VAULT / INQUIRY ONLY</span></header>
-<section class="hero"><h1>BEATS<br>OCTUBRE</h1>
-<p>Nada se vende acá. Elegí un beat, escuchalo y escribime por Instagram.</p>
-<button class="load" id="load">Cargar mis beats desde este dispositivo</button>
-<input type="file" id="files" accept="audio/*" multiple hidden></section>
-<div class="belt" aria-hidden="true"><div id="belt"></div></div>
-<main class="vault" id="vault"></main>
-<footer>shelovesttute© — @shelovesttute</footer>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header class="top">
+  <span>shelovesttute© §</span>
+  <span>PRIVATE VAULT / INQUIRY ONLY</span>
+</header>
+
+<section class="hero">
+  <h1>BEATS<br>OCTUBRE</h1>
+  <p>Nada se vende acá. Elegí un beat, escuchalo y escribime por Instagram.</p>
+</section>
+
+<div class="belt" aria-hidden="true"><div>
+  {% for i in range(8) %}<span>NO DOWNLOADS ✦ NO LEAKS ✦ INQUIRE ONLY ✦</span>{% endfor %}
+</div></div>
+
+<main class="vault">
+  {% for b in beats %}
+  <article class="beat" data-src="/stream/{{ b.file }}" data-title="{{ b.title }}">
+    <button class="cover" aria-label="Reproducir {{ b.title }}">
+      <img src="/static/img/cover.jpg" alt="Portada de {{ b.title }}" loading="lazy">
+      <span class="tag">shelovesttute©</span>
+      <span class="play"></span>
+    </button>
+    <div class="meta">
+      <span class="num">{{ b.n }} / shelovesttute©</span>
+      <h2>{{ b.title }}</h2>
+      <a class="inquire" href="https://ig.me/m/shelovesttute" target="_blank" rel="noopener">Consultar por Instagram</a>
+    </div>
+  </article>
+  {% else %}
+  <p class="empty">La bóveda está vacía. Poné archivos .mp3 o .wav en <code>assets/audio/</code>.</p>
+  {% endfor %}
+</main>
+
+<footer>shelovesttute© § — @shelovesttute</footer>
+
 <div class="player" id="player" hidden>
-<button id="prev" aria-label="Anterior">&#9198;</button><button id="tg" aria-label="Play o pausa">&#9654;</button><button id="next" aria-label="Siguiente">&#9197;</button>
-<div class="now" id="now">—</div><input type="range" id="seek" min="0" max="1000" value="0" aria-label="Posición"><time id="time">0:00</time></div>
-<audio id="a" preload="none"></audio><div class="toast" id="toast" role="status"></div>
-<script>
-const COVER="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5Ojf/2wBDAQoKCg0MDRoPDxo3JR8lNzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzf/wAARCAHgAeADASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDmopIweDSy28V9GdoG9fSs+KRcgkc46Vp6QUExTkM9cNRtI9GCVyW9hDaA6E5K1w84547GvQXQiGeEjPBrgpQDeOhPAaoou50z20K7LmMt6VCEPlb8cCrswRFdeOlURMywGMdO9daRyyZtaFpf2mEz9AK3NHs5Ib6TzfuY+WoPDTqNLCH1zit2EpkbuOKynoWtjFu7KS5vJADgCtWy8Hzj3tm3p0E/UimS/84I43f0/C3d1a89v/AIj3zI8O2a90uW61S3y04+X0/s5k84J/X581h2N31p2lO1U891G63l6O40uXfH3C/8f0mK4W1A3tS98u4u3J1f582mZlXb49vS22XfH3f52+3sA5Xm81u+Pz3uK8t/A0xQd7P2X309kL04c5520l03f19T48w3+I95v4nU2N5wS2vPq+aTf9d92e59yq2Pj5M4908l105c3f3aXo7xY4u40m8/Pqf9547d7q4x/6c/p0p0K90p/9v2S0347u985r+i7C5vI4x05qL6X+9v8c/21sA0Kq6/c4p9sP9t89sR3/iG62Gk2yNq152m6kI4a+Lp6v0X5/0A4V0f10c3w8P69n+t/00O0k5aJ9244X02X44m0A1z4T0w+6/5j+04r+kY019Ea/z03l03e7e/A6pP9d2N302/Nf59pX95mD0+5148y0/D1+uP4iN/6a8/pL8c4y71I/8AWL0w1Xv55i2yP8aC/f485oNn9m3e10/m3s0T1/S9p+t4p654yUvP8c2+R/xL4b6S3l04k+a1pA7I7x6q615v6m1I0/8QA52y11f+2z8x20G51A7N80mXzO1+T+3847eX9a84k7z/N7Y1z3uS0x3Xf14227uP6I2N75t3uS0x3/AF48m3fU3/s2m00N2YjE7S1I3GZ6cEwVvS3Xk1P29i/oF6y85uL8v7fO3q3yR03I223I5j0f5m230m42O8lA45I7pPq8eXm8w/fU20gS84yI/Xv2eW8u39m50C4f2s3z9yZ00X+k2+60fO6v/2y64K2J0Iu09qjY1/2V2q/q71o+2A25qP+6/XJ0y4nO/gE6n3U53p516G5/A258/mF59I4S92eX5yv1o10HlAOpf1E5a2eS8x/o5zK3iM09vT1s3i92l2l8e1xM2fM18a1O63S0i9wQ0C9a224L025a1fA1x9v3G3e1fA0m9p3T/i9t8l/O/hU614eX3f6k/D9p2XvI3x4/j5t3Xj8E3q511z47Y6X8tU25hL0b2tO+3Xk4PzK7kE19G6L1q2p89z4A4r8E3l9b4/m93f9zX+tX3/AC83L2v517m7m4Kz523k4v1j085X/v/N1uP0D0j9v23q9i9x4fS98+O8u9M88/iA3/D904576v6u8R/6m0631t24X18K02/S9+fA8z2Xm34xXG3E0i3g8e3n3s7a/f7cR4e3j+s1m01bN+/L0/i+l/A2q1l132I0LdJjH2T0U9fU3uP3zDk7x/k2r4N82j/k9qOa3v2y3C3e6uH7L4/4A3O16X4sY6z/j02k/l12fO97i34mS3f3eX9c5x1d212v8Xm41s5aJqM039s9v29zI+88Q8u0e9/m/wD2f8yO23X8N6/b7e5S+m/2x7x4S3k4oM7c/x8x9g/xS0t33f3+v/2f8y/zS0l3085j827/v1v47X827284X8e3/9j",OWN="@shelovesttute",COL=["fuckyousmly","casio5k","maizzeno","yvngrobv","rocha999nda"];
-const $=s=>document.querySelector(s),a=$("#a");
-$("#belt").innerHTML=Array(8).fill("<span>NO DOWNLOADS ✦ NO LEAKS ✦ INQUIRE ONLY ✦</span>").join("");
-const demo=[[134,[]],[134,[]],[134,[]],[134,["casio5k"]],[144,["casio5k"]],[130,[]],[127,["fuckyousmly"]],[153,["maizzeno"]],[145,["yvngrobv"]],[131,["rocha999nda"]]].map(([b,h])=>({bpm:b,h,src:null}));
-function parse(f){let s=f.name.replace(/\.[^.]+$/,"").replace(/rocha[\s_.-]*999[\s_.-]*nda/i,"rocha999nda");
-const h=COL.filter(c=>new RegExp("(^|[^a-z0-9])@?"+c+"(?![a-z0-9])","i").test(s));
-COL.forEach(c=>s=s.replace(new RegExp("@?"+c,"ig")," "));
-const m=s.match(/(\d{2,3})\s*bpm/i)||s.match(/(?<!\d)(\d{2,3})(?!\d)/);
-return{bpm:m?m[1]:null,h,src:URL.createObjectURL(f)}}
-let beats=demo,cur=-1;
-function render(){$("#vault").innerHTML=beats.map((b,i)=>{const cr=[OWN,...b.h.map(x=>"@"+x)];
-const t="BEAT"+(b.bpm?" "+b.bpm+"BPM":"");
-return `<article class="beat" data-i="${i}"><button class="cover" aria-label="Reproducir ${t}"><img src="${COVER}" alt="Portada de ${t}"><span class="tag">${OWN}</span>${b.h.length?`<span class="tag tag2">CO-PROD ${b.h.map(x=>"@"+x).join(" × ")}</span>`:""}<span class="play"></span></button>
-<div class="meta"><span class="num">${String(i+1).padStart(2,"0")} / shelovesttute©</span><h2>${t}</h2>
-<p class="credit">${b.h.length?"CO-PROD. ":"PROD. "}${cr.join(" × ")}</p>
-<a class="inq" href="https://ig.me/m/shelovesttute" target="_blank" rel="noopener" data-m="Hola, consulta por el beat ${t} (${cr.join(" ")})">Consultar por Instagram</a></div></article>`}).join("");
-document.querySelectorAll(".cover").forEach((c,i)=>c.onclick=()=>play(i));
-document.querySelectorAll(".inq").forEach(l=>l.onclick=async()=>{try{await navigator.clipboard.writeText(l.dataset.m)}catch{}toast("Mensaje copiado. Pegalo en el DM.")})}
-function toast(t){const e=$("#toast");e.textContent=t;e.classList.add("show");setTimeout(()=>e.classList.remove("show"),2800)}
-function sync(){document.querySelectorAll(".beat").forEach((e,i)=>e.classList.toggle("on",i===cur&&!a.paused));$("#tg").innerHTML=a.paused?"&#9654;":"&#10074;&#10074;"}
-function play(i){const b=beats[i];if(!b.src)return toast("Este es el diseño de muestra. Tocá \"Cargar mis beats\" para escucharlos.");
-if(i===cur)return a.paused?a.play():a.pause();cur=i;a.src=b.src;$("#now").textContent="BEAT "+(b.bpm?b.bpm+"BPM ":"")+"@shelovesttute";$("#player").hidden=false;a.play();sync()}
-const step=d=>{const n=beats.length;for(let k=1;k<=n;k++){const j=(cur+d*k+n*k)%n;if(beats[j].src)return play(j)}};
-$("#tg").onclick=()=>a.paused?a.play():a.pause();$("#next").onclick=()=>step(1);$("#prev").onclick=()=>step(-1);
-a.onplay=a.onpause=sync;a.onended=()=>step(1);
-a.ontimeupdate=()=>{if(a.duration)$("#seek").value=a.currentTime/a.duration*1000;const t=a.currentTime;$("#time").textContent=Math.floor(t/60)+":"+String(Math.floor(t%60)).padStart(2,"0")};
-$("#seek").oninput=e=>a.duration&&(a.currentTime=e.target.value/1000*a.duration);
-$("#load").onclick=()=>$("#files").click();
-$("#files").onchange=e=>{const f=[...e.target.files].sort((x,y)=>x.name.localeCompare(y.name));if(!f.length)return;
-a.pause();cur=-1;beats=f.map(parse);render();sync();toast(f.length+" beats cargados. Quedan solo en tu dispositivo.")};
-render();
-</script></body></html>
+  <button id="prev" aria-label="Anterior">&#9198;</button>
+  <button id="toggle" aria-label="Play / pausa">&#9654;</button>
+  <button id="next" aria-label="Siguiente">&#9197;</button>
+  <div class="now" id="now">—</div>
+  <input type="range" id="seek" min="0" max="1000" value="0" aria-label="Posición">
+  <time id="time">0:00</time>
+</div>
+<audio id="audio" preload="none" controlsList="nodownload"></audio>
+<div class="toast" id="toast" role="status"></div>
+<script src="/static/script.js"></script>
+</body>
+</html>
