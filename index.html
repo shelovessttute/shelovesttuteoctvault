@@ -59,10 +59,23 @@ footer{padding:2rem clamp(1rem,3vw,2.5rem);font-weight:700}
 <script>
 const COVER="cover.jpg";
 const OWN="@shelovesttute";
-const COL=["fuckyousmly","casio5k","maizzeno","yvngrobv","rocha999nda"];
 const $=s=>document.querySelector(s),a=$("#a");
 $("#belt").innerHTML=Array(8).fill("<span>NO DOWNLOADS ✦ NO LEAKS ✦ INQUIRE ONLY ✦</span>").join("");
-const beats=[[134,[]],[134,[]],[134,[]],[134,["casio5k"]],[144,["casio5k"]],[130,[]],[127,["fuckyousmly"]],[153,["maizzeno"]],[145,["yvngrobv"]],[131,["rocha999nda"]]].map(([b,h])=>({bpm:b,h,img:COVER}));
+
+// Lista de beats con sus BPMs, colaboradores y archivos de audio en assets/audio/
+const beats=[
+  {bpm:134, h:[], src:"assets/audio/beat1.mp3", img:COVER},
+  {bpm:134, h:[], src:"assets/audio/beat2.mp3", img:COVER},
+  {bpm:134, h:[], src:"assets/audio/beat3.mp3", img:COVER},
+  {bpm:134, h:["casio5k"], src:"assets/audio/beat4.mp3", img:COVER},
+  {bpm:144, h:["casio5k"], src:"assets/audio/beat5.mp3", img:COVER},
+  {bpm:130, h:[], src:"assets/audio/beat6.mp3", img:COVER},
+  {bpm:127, h:["fuckyousmly"], src:"assets/audio/beat7.mp3", img:COVER},
+  {bpm:153, h:["maizzeno"], src:"assets/audio/beat8.mp3", img:COVER},
+  {bpm:145, h:["yvngrobv"], src:"assets/audio/beat9.mp3", img:COVER},
+  {bpm:131, h:["rocha999nda"], src:"assets/audio/beat10.mp3", img:COVER}
+];
+
 let cur=-1;
 function render(){$("#vault").innerHTML=beats.map((b,i)=>{const cr=[OWN,...b.h.map(x=>"@"+x)];
 const t="BEAT"+(b.bpm?" "+b.bpm+"BPM":"");
@@ -70,12 +83,32 @@ return `<article class="beat" data-i="${i}"><button class="cover" aria-label="Re
 <div class="meta"><span class="num">${String(i+1).padStart(2,"0")} / shelovesttute©</span><h2>${t}</h2>
 <p class="credit">${b.h.length?"CO-PROD. ":"PROD. "}${cr.join(" × ")}</p>
 <a class="inq" href="https://ig.me/m/shelovesttute" target="_blank" rel="noopener" data-m="Hola, consulta por el beat ${t} (${cr.join(" ")})">Consultar por Instagram</a></div></article>`}).join("");
+document.querySelectorAll(".cover").forEach((c,i)=>c.onclick=()=>play(i));
 document.querySelectorAll(".inq").forEach(l=>l.onclick=async()=>{try{await navigator.clipboard.writeText(l.dataset.m)}catch{}toast("Mensaje copiado. Pegalo en el DM.")})}
+
 function toast(t){const e=$("#toast");e.textContent=t;e.classList.add("show");setTimeout(()=>e.classList.remove("show"),2800)}
 function sync(){document.querySelectorAll(".beat").forEach((e,i)=>e.classList.toggle("on",i===cur&&!a.paused));$("#tg").innerHTML=a.paused?"&#9654;":"&#10074;&#10074;"}
-function play(i){if(i===cur)return a.paused?a.play():a.pause();cur=i;$("#now").textContent="BEAT "+(beats[i].bpm?beats[i].bpm+"BPM ":"")+"@shelovesttute";$("#player").hidden=false;sync()}
+
+function play(i){
+  const b=beats[i];
+  if(!b.src) return toast("Audio no disponible.");
+  if(i===cur) return a.paused?a.play():a.pause();
+  cur=i;
+  a.src=b.src;
+  $("#now").textContent="BEAT "+(b.bpm?b.bpm+"BPM ":"")+"@shelovesttute";
+  $("#player").hidden=false;
+  a.play();
+  sync();
+}
+
 const step=d=>{const n=beats.length;play((cur+d+n)%n)};
-$("#tg").onclick=()=>a.paused?a.play():a.pause();$("#next").onclick=()=>step(1);$("#prev").onclick=()=>step(-1);
+$("#tg").onclick=()=>a.paused?a.play():a.pause();
+$("#next").onclick=()=>step(1);
+$("#prev").onclick=()=>step(-1);
 a.onplay=a.onpause=sync;
+a.onended=()=>step(1);
+a.ontimeupdate=()=>{if(a.duration)$("#seek").value=a.currentTime/a.duration*1000;const t=a.currentTime;$("#time").textContent=Math.floor(t/60)+":"+String(Math.floor(t%60)).padStart(2,"0")};
+$("#seek").oninput=e=>a.duration&&(a.currentTime=e.target.value/1000*a.duration);
+
 render();
 </script></body></html>
