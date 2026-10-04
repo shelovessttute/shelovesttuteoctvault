@@ -25,12 +25,11 @@ h1{font:400 clamp(4.2rem,22vw,20rem)/.82 var(--d)}
 .cover{all:unset;display:block;position:relative;width:100%;aspect-ratio:1;cursor:pointer;border-bottom:var(--line);overflow:hidden}
 .cover img{width:100%;height:100%;object-fit:cover;display:block}
 .tag{position:absolute;left:0;top:1rem;background:#000;color:#ffe600;font:400 1.5rem var(--d);padding:.2rem .8rem .2rem 1rem}
-.tag2{top:3.4rem;background:var(--hot);color:#000;font-size:1.05rem;max-width:92%;line-height:1.25}
 .play{position:absolute;right:1rem;bottom:1rem;width:4.2rem;height:4.2rem;background:#ffe600;border:4px solid #000;display:grid;place-items:center}
 .play::after{content:"";border-left:1.5rem solid #000;border-block:.95rem solid transparent;margin-left:.4rem}
 .beat.on .play::after{border:0;width:1.3rem;height:1.5rem;margin:0;background:linear-gradient(90deg,#000 35%,transparent 35% 65%,#000 65%)}
 .meta{padding:1rem 1.1rem 1.2rem}.num{font-weight:700;font-size:.85rem}
-h2{font:400 clamp(2.2rem,5vw,3rem)/.95 var(--d);margin:.3rem 0 .5rem;overflow-wrap:anywhere}
+h2{font:400 clamp(1.8rem,4vw,2.5rem)/.95 var(--d);margin:.3rem 0 .5rem;overflow-wrap:anywhere}
 .credit{font-weight:700;margin-bottom:1rem}
 .inq{display:block;text-align:center;background:#000;color:#ffe600;text-decoration:none;font-weight:700;padding:.9rem;border:4px solid #000}
 .beat.on .inq{border-color:#000}
@@ -44,7 +43,6 @@ footer{padding:2rem clamp(1rem,3vw,2.5rem);font-weight:700}
 .toast{position:fixed;left:50%;bottom:120px;transform:translate(-50%,20px);background:var(--hot);color:#000;border:4px solid #000;padding:.7rem 1rem;font-weight:700;opacity:0;pointer-events:none;transition:.2s;max-width:92vw;text-align:center}
 .toast.show{opacity:1;transform:translate(-50%,0)}
 @media(max-width:600px){.now{display:none}.top span:last-child{display:none}}
-@media(prefers-reduced-motion:reduce){.belt div{animation:none}}
 </style></head><body>
 <header class="top"><span>shelovesttute©</span><span>PRIVATE VAULT / INQUIRY ONLY</span></header>
 <section class="hero"><h1>BEATS<br>OCTUBRE</h1>
@@ -55,60 +53,135 @@ footer{padding:2rem clamp(1rem,3vw,2.5rem);font-weight:700}
 <div class="player" id="player" hidden>
 <button id="prev" aria-label="Anterior">&#9198;</button><button id="tg" aria-label="Play o pausa">&#9654;</button><button id="next" aria-label="Siguiente">&#9197;</button>
 <div class="now" id="now">—</div><input type="range" id="seek" min="0" max="1000" value="0" aria-label="Posición"><time id="time">0:00</time></div>
-<audio id="a" preload="none"></audio><div class="toast" id="toast" role="status"></div>
+<audio id="a" preload="auto"></audio><div class="toast" id="toast" role="status"></div>
 <script>
-const COVER="cover.jpg";
 const OWN="@shelovesttute";
 const $=s=>document.querySelector(s),a=$("#a");
 $("#belt").innerHTML=Array(8).fill("<span>NO DOWNLOADS ✦ NO LEAKS ✦ INQUIRE ONLY ✦</span>").join("");
 
-// Lista de beats con sus BPMs, colaboradores y archivos de audio en assets/audio/
-const beats=[
-  {bpm:134, h:[], src:"assets/audio/beat1.mp3", img:COVER},
-  {bpm:134, h:[], src:"assets/audio/beat2.mp3", img:COVER},
-  {bpm:134, h:[], src:"assets/audio/beat3.mp3", img:COVER},
-  {bpm:134, h:["casio5k"], src:"assets/audio/beat4.mp3", img:COVER},
-  {bpm:144, h:["casio5k"], src:"assets/audio/beat5.mp3", img:COVER},
-  {bpm:130, h:[], src:"assets/audio/beat6.mp3", img:COVER},
-  {bpm:127, h:["fuckyousmly"], src:"assets/audio/beat7.mp3", img:COVER},
-  {bpm:153, h:["maizzeno"], src:"assets/audio/beat8.mp3", img:COVER},
-  {bpm:145, h:["yvngrobv"], src:"assets/audio/beat9.mp3", img:COVER},
-  {bpm:131, h:["rocha999nda"], src:"assets/audio/beat10.mp3", img:COVER}
-];
+const beats = [
+  {
+    "title": "BEAT 1",
+    "src": "./assets/audio/beat_1.mp3",
+    "img": "cover.jpg"
+  },
+  {
+    "title": "BEAT 10",
+    "src": "./assets/audio/beat_10.mp3",
+    "img": "cover.jpg"
+  },
+  {
+    "title": "BEAT 11",
+    "src": "./assets/audio/beat_11.mp3",
+    "img": "cover.jpg"
+  },
+  {
+    "title": "BEAT 12",
+    "src": "./assets/audio/beat_12.mp3",
+    "img": "cover.jpg"
+  },
+  {
+    "title": "BEAT 2",
+    "src": "./assets/audio/beat_2.wav",
+    "img": "cover.jpg"
+  },
+  {
+    "title": "BEAT 3",
+    "src": "./assets/audio/beat_3.mp3",
+    "img": "cover.jpg"
+  },
+  {
+    "title": "BEAT 4",
+    "src": "./assets/audio/beat_4.mp3",
+    "img": "cover.jpg"
+  },
+  {
+    "title": "BEAT 5",
+    "src": "./assets/audio/beat_5.mp3",
+    "img": "cover.jpg"
+  },
+  {
+    "title": "BEAT 6",
+    "src": "./assets/audio/beat_6.mp3",
+    "img": "cover.jpg"
+  },
+  {
+    "title": "BEAT 7",
+    "src": "./assets/audio/beat_7.mp3",
+    "img": "cover.jpg"
+  },
+  {
+    "title": "BEAT 8",
+    "src": "./assets/audio/beat_8.mp3",
+    "img": "cover.jpg"
+  },
+  {
+    "title": "BEAT 9",
+    "src": "./assets/audio/beat_9.mp3",
+    "img": "cover.jpg"
+  }
+] ;
 
 let cur=-1;
-function render(){$("#vault").innerHTML=beats.map((b,i)=>{const cr=[OWN,...b.h.map(x=>"@"+x)];
-const t="BEAT"+(b.bpm?" "+b.bpm+"BPM":"");
-return `<article class="beat" data-i="${i}"><button class="cover" aria-label="Reproducir ${t}"><img src="${b.img}" alt="Portada de ${t}"><span class="tag">${OWN}</span>${b.h.length?`<span class="tag tag2">CO-PROD ${b.h.map(x=>"@"+x).join(" × ")}</span>`:""}<span class="play"></span></button>
-<div class="meta"><span class="num">${String(i+1).padStart(2,"0")} / shelovesttute©</span><h2>${t}</h2>
-<p class="credit">${b.h.length?"CO-PROD. ":"PROD. "}${cr.join(" × ")}</p>
-<a class="inq" href="https://ig.me/m/shelovesttute" target="_blank" rel="noopener" data-m="Hola, consulta por el beat ${t} (${cr.join(" ")})">Consultar por Instagram</a></div></article>`}).join("");
-document.querySelectorAll(".cover").forEach((c,i)=>c.onclick=()=>play(i));
-document.querySelectorAll(".inq").forEach(l=>l.onclick=async()=>{try{await navigator.clipboard.writeText(l.dataset.m)}catch{}toast("Mensaje copiado. Pegalo en el DM.")})}
 
-function toast(t){const e=$("#toast");e.textContent=t;e.classList.add("show");setTimeout(()=>e.classList.remove("show"),2800)}
-function sync(){document.querySelectorAll(".beat").forEach((e,i)=>e.classList.toggle("on",i===cur&&!a.paused));$("#tg").innerHTML=a.paused?"&#9654;":"&#10074;&#10074;"}
-
-function play(i){
-  const b=beats[i];
-  if(!b.src) return toast("Audio no disponible.");
-  if(i===cur) return a.paused?a.play():a.pause();
-  cur=i;
-  a.src=b.src;
-  $("#now").textContent="BEAT "+(b.bpm?b.bpm+"BPM ":"")+"@shelovesttute";
-  $("#player").hidden=false;
-  a.play();
-  sync();
+function render(){
+    $("#vault").innerHTML=beats.map((b,i)=>{
+        const t=b.title;
+        return `<article class="beat" data-i="${i}"><button class="cover"><img src="${b.img}" alt="${t}"><span class="tag">${OWN}</span><span class="play"></span></button>
+        <div class="meta"><span class="num">${String(i+1).padStart(2,"0")} / shelovesttute©</span><h2>${t}</h2>
+        <p class="credit">PROD. ${OWN}</p>
+        <a class="inq" href="https://ig.me/m/shelovesttute" target="_blank" rel="noopener" data-m="Hola, consulta por el beat ${t}">Consultar por Instagram</a></div></article>`
+    }).join("");
+    document.querySelectorAll(".cover").forEach((c,i)=>c.onclick=()=>play(i));
+    document.querySelectorAll(".inq").forEach(l=>l.onclick=async()=>{try{await navigator.clipboard.writeText(l.dataset.m)}catch{}toast("Mensaje copiado. Pegalo en el DM.")})
 }
 
-const step=d=>{const n=beats.length;play((cur+d+n)%n)};
-$("#tg").onclick=()=>a.paused?a.play():a.pause();
+function toast(t){const e=$("#toast");e.textContent=t;e.classList.add("show");setTimeout(()=>e.classList.remove("show"),2800)}
+
+function sync(){
+    document.querySelectorAll(".beat").forEach((e,i)=>e.classList.toggle("on",i===cur&&!a.paused));
+    $("#tg").innerHTML=a.paused?"&#9654;":"&#10074;&#10074;";
+}
+
+async function play(i){
+    const b=beats[i];
+    if(!b) return;
+    if(i===cur){
+        if(a.paused){
+            try{ await a.play(); }catch(e){ console.error(e); }
+        }else{
+            a.pause();
+        }
+        sync();
+        return;
+    }
+    cur=i;
+    a.src=b.src;
+    $("#now").textContent=b.title;
+    $("#player").hidden=false;
+    a.load();
+    try{
+        await a.play();
+    }catch(e){
+        console.error("Play error:", e);
+    }
+    sync();
+}
+
+const step=d=>{const n=beats.length;if(n) play((cur+d+n)%n)};
+$("#tg").onclick=()=>a.paused?a.play().catch(e=>console.error(e)):a.pause();
 $("#next").onclick=()=>step(1);
 $("#prev").onclick=()=>step(-1);
 a.onplay=a.onpause=sync;
 a.onended=()=>step(1);
-a.ontimeupdate=()=>{if(a.duration)$("#seek").value=a.currentTime/a.duration*1000;const t=a.currentTime;$("#time").textContent=Math.floor(t/60)+":"+String(Math.floor(t%60)).padStart(2,"0")};
-$("#seek").oninput=e=>a.duration&&(a.currentTime=e.target.value/1000*a.duration);
+a.ontimeupdate=()=>{
+    if(a.duration){ $("#seek").value=(a.currentTime/a.duration)*1000; }
+    const t=a.currentTime||0;
+    const m=Math.floor(t/60);
+    const s=String(Math.floor(t%60)).padStart(2,"0");
+    $("#time").textContent=m+":"+s;
+};
+$("#seek").oninput=e=>{ if(a.duration) a.currentTime=(e.target.value/1000)*a.duration; };
 
 render();
 </script></body></html>
