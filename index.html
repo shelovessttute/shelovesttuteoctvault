@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BEATS OCTUBRE — shelovesttute© §</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header class="top">
+  <span>shelovesttute© §</span>
+  <span>PRIVATE VAULT / INQUIRY ONLY</span>
+</header>
+
+<section class="hero">
+  <h1>BEATS<br>OCTUBRE</h1>
+  <p>Nada se vende acá. Elegí un beat, escuchalo y escribime por Instagram.</p>
+</section>
+
+<div class="belt" aria-hidden="true"><div>
+  {% for i in range(8) %}<span>NO DOWNLOADS ✦ NO LEAKS ✦ INQUIRE ONLY ✦</span>{% endfor %}
+</div></div>
+
+<main class="vault">
+  {% for b in beats %}
+  <article class="beat" data-src="/stream/{{ b.file }}" data-title="{{ b.title }}">
+    <button class="cover" aria-label="Reproducir {{ b.title }}">
+      <img src="/static/img/cover.jpg" alt="Portada de {{ b.title }}" loading="lazy">
+      <span class="tag">shelovesttute©</span>
+      <span class="play"></span>
+    </button>
+    <div class="meta">
+      <span class="num">{{ b.n }} / shelovesttute©</span>
+      <h2>{{ b.title }}</h2>
+      <a class="inquire" href="https://ig.me/m/shelovesttute" target="_blank" rel="noopener">Consultar por Instagram</a>
+    </div>
+  </article>
+  {% else %}
+  <p class="empty">La bóveda está vacía. Poné archivos .mp3 o .wav en <code>assets/audio/</code>.</p>
+  {% endfor %}
+</main>
+
+<footer>shelovesttute© § — @shelovesttute</footer>
+
+<div class="player" id="player" hidden>
+  <button id="prev" aria-label="Anterior">&#9198;</button>
+  <button id="toggle" aria-label="Play / pausa">&#9654;</button>
+  <button id="next" aria-label="Siguiente">&#9197;</button>
+  <div class="now" id="now">—</div>
+  <input type="range" id="seek" min="0" max="1000" value="0" aria-label="Posición">
+  <time id="time">0:00</time>
+</div>
+<audio id="audio" preload="none" controlsList="nodownload"></audio>
+<div class="toast" id="toast" role="status"></div>
+<script src="/static/script.js"></script>
+</body>
+</html>
